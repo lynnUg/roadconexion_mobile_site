@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html> <head>
+<title>UgTV</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+<h1></h1>
+    <div id="site">UgTV</div>
+    <div id="header">
+    <div id="banner">
+        <a href=""><img src="/static/pictures/logo2.jpg" border="0" /></a>
+    </div>
+    <div class="deets">
+       
+        {% if user.is_authenticated %}
+         <font face="verdana" color="red">Welcome {{user.name}} </font> | <a href="/logout" > logout</a>
+        {% else %}
+        {% endif %}
+    </div>
+   
+</div>
+    
+    
+
+
+    {% block content %}{% endblock %}
+    
+        
+ <div id="footer">
+    <a href="/content/contact">Contact</a>
+        {% if user.is_authenticated %}
+         
+        {% else %}
+         |  <a href="/content/register">Sign Up </a>
+        {% endif %}
+
+
+
+    |<a href="/content/terms"> Terms</a> | <a href="/content/about"> About </a> <br /><span>&copy; UgTV 2013</span></div>
+
+
+
+</body> 
+</html>
+
