@@ -1,5 +1,6 @@
 # Django settings for roadtracker project.
-
+import os
+PROJECT_PATH = os.getcwd()
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -64,6 +65,7 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = ''
+STATIC_PATH = os.path.join(PROJECT_PATH,'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -74,6 +76,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    STATIC_PATH,
 )
 
 # List of finder classes that know how to find static files in
@@ -110,6 +113,7 @@ ROOT_URLCONF = 'roadtracker.urls'
 WSGI_APPLICATION = 'roadtracker.wsgi.application'
 
 TEMPLATE_DIRS = (
+    'templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -123,7 +127,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_auth',
-    'mobile',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -142,7 +145,11 @@ AUTHENTICATION_BACKENDS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
   
-  "social_auth.context_processors.social_auth_by_type_backends"
+  'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
+    'django.contrib.auth.context_processors.auth',
   
 )
 SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
@@ -160,6 +167,9 @@ GOOGLE_OAUTH2_CLIENT_ID      = ''
 GOOGLE_OAUTH2_CLIENT_SECRET  = ''
 YAHOO_CONSUMER_KEY           = ''
 YAHOO_CONSUMER_SECRET        = ''
+#AUTH_USER_MODEL = 'mobile.myUser'
+#SOCIAL_AUTH_USER_MODEL = 'mobile.myUser'
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -188,3 +198,21 @@ LOGGING = {
         },
     }
 }
+
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+
+DATABASES['default'] =  dj_database_url.config(default='postgres://egumfiggypgjku:y6M9ZyzmYQH_T7JzOWai1pLAMg@ec2-54-204-40-140.compute-1.amazonaws.com:5432/dd9ov8efdg2ed4')
+#MODERATOR['CLASSIFIER']= dj_database_url.config(default='redis://redistogo:82cc3d0b09d545fda39dce04f3b6683d@soldierfish.redistogo.com:9471/')
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+
+
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
