@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^add_report/$',
         'mobile.views.submit_report',
         name='add_report'),
+
     url(r'^$', TemplateView.as_view(template_name='front.html')),
     url(r'', include('social_auth.urls')),
     # url(r'^$', 'roadtracker.views.home', name='home'),
@@ -30,6 +31,12 @@ urlpatterns = patterns('',
     url(r'^search/$',
         'mobile.views.search',
         name='search'),
+     url(r'^report/$',
+        'mobile.views.report',
+        name='report'),
+     url(r'^follow/$',
+        'mobile.views.follow',
+        name='follow'),
 
 )
 if settings.DEBUG:

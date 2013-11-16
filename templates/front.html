@@ -5,10 +5,14 @@
 
     
     
-
-
-
-
-    
+<form method="post" id="Follow" action="/follow/">
+{% csrf_token %}
+        <input type="submit" name="submit" value="Follow Road" class="btn" />
+</form>
+<form method="post" id="Follow" action="/report/">
+    {% csrf_token %}
+        <strong><input type="submit" name="submit" value="Report Road" class="btn" /></strong>
+</form>
+     
     
 {% endblock %}

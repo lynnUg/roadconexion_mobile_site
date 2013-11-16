@@ -31,18 +31,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
         {% if user.is_authenticated %}
          <font face="verdana" color="red">Welcome {{user.username}} </font> | <a href="/logout" > logout</a>
         {% else %}
-        <a class="blueButton" href="#"><span class="blueButtonText">Login</span></a>
-        <p> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></p>
-     <p> <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a></p>
-     <p><a href="/login">Login with RoadTracker Account</a></p>
+        <button> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></button>
+    <p> <button> <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a></button></p>
+    <p><button> <a href="/login">Login with RoadTracker Account</a></button></p>
         {% endif %}
     </div>
    
 </div>
     
-    
-
-
+   
+       
+   
     {% block content %}{% endblock %}
     
         

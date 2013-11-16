@@ -146,40 +146,8 @@ ul#navigation {list-style:none;position:relative; z-index:2;top:1px;display:tabl
 ul#navigation li {float:left;}
 ul#navigation li a {background:#ffd89b;color:#222;display:block;padding:6px 15px;text-decoration:none;border-right:1px solid #f5ab36;border-top:1px solid #f5ab36;border-right:1px solid #f5ab36;margin:0;}
 ul#navigation li a.selected {border-bottom:1px solid #fff;color:#344385;background:#fff;}
-.blueButton{
-    background:#6da952 url(../images/btt-bg.png) no-repeat 0px -48px;
-    border:1px solid #29447e;
-    border-bottom-color:#1a356e;
-    box-shadow:0 1px 0 rgba(0, 0, 0, .1);
-    cursor:pointer;
-    display:-moz-inline-box;
-    display:inline-block;
-    font-size: 11px;
-    font-weight:bold;
-    line-height:normal !important;
-    padding:2px 6px;
-    text-align:center;
-    text-decoration:none;
-    vertical-align:top;
-    white-space:nowrap;
-    color:#fff; 
-}
-.blueButton:active{
-    background:#4f6aa3;
-    border-bottom-color:#999;
-}
-.blueButton .blueButtonText,.blueButton input{
-    background:none;
-    border:0;
-    color:#fff;
-    cursor:pointer;
-    display:-moz-inline-box;
-    display:inline-block;
-    font-family:'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
-    font-size: 11px;
-    font-weight:bold;
-    margin:0;
-    outline:none;
-    padding:1px 0 2px;
-    white-space:nowrap
+#mybutton .btn { padding: 3px 8px 4px 8px; border: 0; background: #1B0862; color: #fff; font-weight: bold; }
+.button {
+    display: block;
+    width: 100%;
 }

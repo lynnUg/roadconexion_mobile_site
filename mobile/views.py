@@ -28,7 +28,7 @@ def submit_report(request):
             the_report.save()
             return render_to_response(
             'posts.html',
-            {'form':ReportForm},
+            {'form':Report_form},
             context)
 
         else:
@@ -37,12 +37,12 @@ def submit_report(request):
     # Not a HTTP POST, so we render our form using two ModelForm instances.
     # These forms will be blank, ready for user input.
     else:
-        the_report = ReportForm()
+        Report_form = ReportForm()
 
     # Render the template depending on the context.
     return render_to_response(
             'report.html',
-            {'form':ReportForm},
+            {'form':Report_form},
             context)
 @login_required
 def search(request):
@@ -59,4 +59,19 @@ def search(request):
 	return render_to_response(
             'posts.html',
             {'object_list':object_list},
+            context)
+@login_required
+def follow(request):
+	context = RequestContext(request)
+	object_list=Report.objects.all()
+	return render_to_response(
+            'posts.html',
+            {'object_list':object_list},
+            context)
+def report(request):
+	context = RequestContext(request)
+	Report_form = ReportForm()
+	return render_to_response(
+            'report.html',
+            {'form':Report_form},
             context)
