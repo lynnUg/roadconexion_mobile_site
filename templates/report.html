@@ -1,15 +1,53 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
  
 
 {% block content %}
 
-    
-    
+   
 
-test
+<div id="content">
 
+    <div class="purple">
+     
+<div class="h1">Submit Report</div>
 
-
+<form  class="form-horizontal" action="{% url 'add_report' %}" method="POST">
+	{% csrf_token %}
+    <div class="row">
+       {{form.errors.road_name}}
+        <label for="id_name">Road name</label>
+        
+        
+        <input id="id_name" type="text" class="required" name="road_name" maxlength="200" value="{{form.cleaned_data.road_name|safe}}" />
+    </div>
     
+<div class="row">
+    {{form.errors.report}}
+        <label for="id_report">Report</label>
+        
+        <textarea id="id_report" rows="10" cols="40" name="report" value="{{form.cleaned_data.report|safe}}"></textarea>
+    </div>
+   
+    <div class="row shorter">
+        {{form.errors.type_report}}
+        <label for="id_type_report">Type of report</label>
+         
+        <select name="type_report" id="id_type_report">
+<option selected="selected">{{form.cleaned_data.type_report|safe}}</option>
+<option value="TrafficJam">TrafficJam</option>
+<option value="Accident">Accident</option>
+<option value="RoadStatus">RoadStatus</option>
+</select>
+    </div>
+ 
+<div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
     
+</form>
+</div>
+</div>
 {% endblock %}

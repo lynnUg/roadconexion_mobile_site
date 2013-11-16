@@ -26,7 +26,7 @@ DATABASES = {
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/members/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/login-error/'
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -127,6 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_auth',
+    'registration',
+    'mobile',
     # Uncomment the next line to enable the admin:
      'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -167,8 +169,6 @@ GOOGLE_OAUTH2_CLIENT_ID      = ''
 GOOGLE_OAUTH2_CLIENT_SECRET  = ''
 YAHOO_CONSUMER_KEY           = ''
 YAHOO_CONSUMER_SECRET        = ''
-#AUTH_USER_MODEL = 'mobile.myUser'
-#SOCIAL_AUTH_USER_MODEL = 'mobile.myUser'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

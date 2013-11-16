@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html> <head>
 <title>RoadTracker</title>
-<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/style3.css">
 </head>
 
 <body>
@@ -9,15 +9,15 @@
     <div id="site">RoadTracker</div>
     <div id="header">
     <div id="banner">
-        <a href=""><img src="/static/pictures/logo2.jpg" border="0" /></a>
+        <a href=""><img src="/static/img/africa_map3.jpg" border="0" /></a>
     </div>
     <div class="deets">
        
         {% if user.is_authenticated %}
          <font face="verdana" color="red">Welcome {{user.name}} </font> | <a href="/logout" > logout</a>
         {% else %}
-         <a href="{% url 'socialauth_begin' 'google-oauth2' %}">Login with Google</a>
-      <a href="{% url 'socialauth_begin' 'twitter' %}">Login with GitHub</a>
+         <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>
+      <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a>
         {% endif %}
     </div>
    

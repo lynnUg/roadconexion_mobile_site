@@ -5,9 +5,15 @@ from django.views.generic import (TemplateView,ListView)
 from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
-
+from mobile.models import Report
 urlpatterns = patterns('',
     # Examples:
+     url(r'^view_reports$', ListView.as_view(queryset=Report.objects.all(),
+        template_name='posts.html',
+        paginate_by=15, allow_empty=True)),
+    url(r'^add_report/$',
+        'mobile.views.submit_report',
+        name='add_report'),
     url(r'^$', TemplateView.as_view(template_name='front.html')),
     url(r'', include('social_auth.urls')),
     # url(r'^$', 'roadtracker.views.home', name='home'),
