@@ -27,6 +27,10 @@ urlpatterns = patterns('',
       url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^',  include('registration.backends.default.urls')),
     url(r'^login$', 'django.contrib.auth.views.login'),
+    url(r'^search/$',
+        'mobile.views.search',
+        name='search'),
+
 )
 if settings.DEBUG:
         urlpatterns += patterns(

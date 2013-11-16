@@ -2,6 +2,22 @@
 {% block content %}
 
 {%if object_list %}
+<form  class="form-horizontal" action="{% url 'search' %}" method="POST">
+	{% csrf_token %}
+    <div class="row">
+       
+        <label for="road">Search Reports</label>
+        
+        
+        <input id="road" type="text" class="required" name="road_name" maxlength="200" value="" />
+    </div>
+    <div class="control-group">
+  <label class="control-label" for="submit"></label>
+  <div class="controls">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+   </form>
 <table>
 <col width="1"></col>
 <col></col>

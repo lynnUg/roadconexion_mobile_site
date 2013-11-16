@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from mobile.models import Report,ReportForm
+from mobile.models import Report,ReportForm 
 from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
@@ -42,4 +42,14 @@ def submit_report(request):
     return render_to_response(
             'report.html',
             {'form':ReportForm},
+            context)
+def search(request):
+	context = RequestContext(request)
+	if request.method == 'POST':
+
+		 starts_with=request.POST['road_name']
+		 object_list=Report.objects.filter(road_name__startswith=starts_with)
+		 return render_to_response(
+            'posts.html',
+            {'object_list':object_list},
             context)
