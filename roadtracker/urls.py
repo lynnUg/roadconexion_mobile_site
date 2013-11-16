@@ -8,7 +8,7 @@ from django.conf import settings
 from mobile.models import Report
 urlpatterns = patterns('',
     # Examples:
-     url(r'^view_reports$', ListView.as_view(queryset=Report.objects.all(),
+     url(r'^view_reports$', ListView.as_view(queryset=Report.objects.all().order_by('-created_on'),
         template_name='posts.html',
         paginate_by=15, allow_empty=True)),
     url(r'^add_report/$',
