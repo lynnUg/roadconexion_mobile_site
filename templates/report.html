@@ -15,10 +15,10 @@
 	{% csrf_token %}
     <div class="row">
        {{form.errors.road_name}}
-        <label for="id_name">Road name</label>
+        <label for="road">Road name</label>
         
         
-        <input id="id_name" type="text" class="required" name="road_name" maxlength="200" value="{{form.cleaned_data.road_name|safe}}" />
+        <input id="road" type="text" class="required" name="road_name" maxlength="200" value="{{form.cleaned_data.road_name|safe}}" />
     </div>
     
 <div class="row">

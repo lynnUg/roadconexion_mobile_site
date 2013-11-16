@@ -2,8 +2,23 @@
 <html> <head>
 <title>RoadTracker</title>
 <link rel="stylesheet" href="/static/css/style3.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=036UztUNAgaDCrS7U_jlB20Sl7V6nNar2eu4dTA&sensor=true" type="text/javascript"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </head>
+<script type="text/javascript">
+ function initialize() {
+  
+  
+  var input = /** @type {HTMLInputElement} */(document.getElementById('road'));
+  var autocomplete = new google.maps.places.Autocomplete(input);
 
+
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);       
+            
+</script>
 <body>
 <h1></h1>
     <div id="site">RoadTracker</div>
@@ -14,10 +29,11 @@
     <div class="deets">
        
         {% if user.is_authenticated %}
-         <font face="verdana" color="red">Welcome {{user.name}} </font> | <a href="/logout" > logout</a>
+         <font face="verdana" color="red">Welcome {{user.username}} </font> | <a href="/logout" > logout</a>
         {% else %}
-         <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a>
-      <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a>
+        <p> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></p>
+     <p> <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a></p>
+     <p><a href="/login">Login with RoadTracker Account</a></p>
         {% endif %}
     </div>
    
