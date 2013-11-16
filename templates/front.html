@@ -3,8 +3,18 @@
 
 {% block content %}
 
+   <div id="header">
     
+    <div class="deets">
+       
+        {% if user.is_authenticated %}
+         <font face="verdana" color="red">Welcome {{user.username}} </font> | <a href="/logout" > logout</a>
+        {% else %}
+        
     
+        {% endif %}
+    </div>  
+    </div>
 <form method="post" id="Follow" action="/follow/">
 {% csrf_token %}
         <input type="submit" name="submit" value="Follow Road" class="btn" />
