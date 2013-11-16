@@ -24,13 +24,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="site">RoadTracker</div>
     <div id="header">
     <div id="banner">
-        <a href=""><img src="/static/img/africa_map3.jpg" border="0" /></a>
+        <a href=""><img src="/static/img/logo.png" border="0" /></a>
     </div>
     <div class="deets">
        
         {% if user.is_authenticated %}
          <font face="verdana" color="red">Welcome {{user.username}} </font> | <a href="/logout" > logout</a>
         {% else %}
+        <a class="blueButton" href="#"><span class="blueButtonText">Login</span></a>
         <p> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></p>
      <p> <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a></p>
      <p><a href="/login">Login with RoadTracker Account</a></p>
@@ -46,13 +47,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     
         
  <div id="footer">
-    <a href="/content/contact">Contact</a>
-        {% if user.is_authenticated %}
-         
-        {% else %}
-         |  <a href="/content/register">Sign Up </a>
-        {% endif %}
-
+    
 
 
     <br /><span>&copy; RoadTracker 2013</span></div>

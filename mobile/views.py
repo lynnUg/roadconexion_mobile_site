@@ -4,6 +4,7 @@ from mobile.models import Report,ReportForm
 from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
+@login_required
 def submit_report(request):
     # Like before, get the request's context.
     context = RequestContext(request)
@@ -43,6 +44,7 @@ def submit_report(request):
             'report.html',
             {'form':ReportForm},
             context)
+@login_required
 def search(request):
 	context = RequestContext(request)
 	object_list=Report.objects.all()
