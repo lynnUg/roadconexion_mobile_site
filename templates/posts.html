@@ -12,15 +12,16 @@
 <tbody>
 
   {% for link in object_list %}<tr class="{% cycle odd,even %}">
-   
+  
     <td class="item">
-      <a >{{ link.user.username|escape }}</a>
+      <a >{{ link.road_name|escape }}</a>
+      <p>{{link.report}}</p>
       <p class="details">
         <span class="score" id="linkscore{{ link.id }}"
               title="after {{ score.num_votes|default:0 }} vote{{ score.num_votes|default:0|pluralize }}">
          
         </span>
-        posted {{ link.created_on|timesince }} ago by {{link.author}}
+        posted {{ link.created_on|timesince }} ago by {{link.user.username}}
         <a class="btn btn-primary" >{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
       </p>
     </td>

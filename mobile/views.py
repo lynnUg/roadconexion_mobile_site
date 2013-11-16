@@ -16,14 +16,14 @@ def submit_report(request):
     if request.method == 'POST':
         # Attempt to grab information from the raw form information.
         # Note that we make use of both UserForm and UserProfileForm.
-        Report_form = ReportForm(data=request.POST)
-        print "here"
-        print Report_form
+        p=request.POST
+        print p
+        Report_form = ReportForm(request.POST)
         # If the two forms are valid...
         if Report_form.is_valid():
             print "here3"
             # Save the user's form data to the database.
-            the_report=Report(road_name=Report_form['road_name'],report=Report_form['report'],type_report=Report_form['type_report'],user=request.user)
+            the_report=Report(road_name=p['road_name'],report=p['report'],type_report=p['type_report'],user=request.user)
             the_report.save()
             return render_to_response(
             'posts.html',

@@ -12,9 +12,10 @@ TYPE_CHOICES=(
 
 
 class Report(models.Model):
-    road_name = models.CharField(max_length=1000, blank=False)
+    road_name = models.TextField(max_length=1000, blank=False)
     report= models.TextField(blank=False)
     type_report=models.CharField(max_length=1000,choices=TYPE_CHOICES,blank=False)
+    created_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User)
     def __unicode__(self):
         return self.road_name
