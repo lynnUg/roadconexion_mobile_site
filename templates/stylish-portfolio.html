@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RoadTracker</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="/static/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/custom.css" rel="stylesheet">
+   
+  </head>
+
+  <body>
+
+
+   <div class="roadheader">
+    <div class="roundedarea"> <img src="/static/img/logo.png" height="80px"></div>
+   
+    <div class="homemenu">
+      <a href="#">Home |</a> <a href="#">About Us | </a><a href="#">Contact Us |</a><a href="#"> Follow us on twitter</a>
+    </div>
+   </div>   <!-- /Side Menu -->
+  
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+    <p>
+      <div class="vert-text"><div class="test">
+              
+              <p>&nbsp;</p>
+              <div class="phone">
+              Follow a road and get alerts on road traffic, accidents, diversions and blockage and save time and costs on fuel...
+get started here</div>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p><a href="#intro" class="btn btn-default btn-lg">+Follow a road</a></p>
+              <p>
+                <a href="#intro" class="btn btn-default btn-lg">Report a road</a></p>
+              <p>
+
+      </div>
+      <div id="logo">
+        
+        <hr>
+        <h3><em>Get to your destination faster and safer</h3>
+        <hr>
+       <ul><p>
+        <div id="details">
+       <p>       
+       <h4>
+        <li> Get value for your taxes by demanding better roads from the Authorities</li>
+        <li>
+
+        Save Time: Beat the jam and get home or to work faster</li></h4>
+
+        <h4><li>Stay safe: Get real time information on road accidents, repairs, blockages</li></h4>
+
+       <h4><li> Save: Save on costs that you would spend on fuel</li></h4>
+
+     </p></div>
+      </div>
+      </div>
+    </div>
+    <!-- /Full Page Image Header Area -->
+  
+    <!-- Intro -->
+    <div id="intro" class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <h2>Road Tracker is an application that enables you to track your destination fast and safe</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Intro -->
+  
+    <!-- Services -->
+    <div id="services" class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <h2>Features</h2>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2 col-md-offset-2 text-center">
+            <div class="service-item">
+              <i class="service-icon icon-rocket"></i>
+              <h4>Follow Road</h4>
+              
+             Get to know about accidents, traffic and road repairs on a particular road
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <div class="service-item">
+              <i class="service-icon icon-magnet"></i>
+              <h4>Report Road</h4>
+              <p>Provide info about particular roads you drive through towards your destination and get real time information on Traffic Jam and Road Accidents  </p>
+              <p>&nbsp; </p>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <div class="service-item">
+              <i class="service-icon icon-shield"></i>
+              <h4>Safety</h4>
+              Reach your destination sound and safe on well constructed roads
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <div class="service-item">
+              <i class="service-icon icon-pencil"></i>
+              <h4>Time</h4>
+              Beat the traffic jam, Reach your destination on time and save on fuel
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Services -->
+
+    <!-- Callout -->
+    <div class="callout">
+      <div class="vert-text">
+        <h1> Beat the Jam</h1>
+      </div>
+    </div>
+    <!-- /Callout -->
+
+    <!-- Portfolio --><!-- /Portfolio -->
+
+    <!-- Call to Action -->
+    <!-- /Call to Action -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-center">
+           <a href="#intro" class="btn btn-default btn-lg">+Follow a road</a>
+             
+                <a href="#intro" class="btn btn-default btn-lg">Report a road</a>
+            <hr>
+            <p>Copyright &copy; Road Tracker 2013</p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+    <!-- /Footer -->
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <!-- Custom JavaScript for the Side Menu - Put in a custom JS file if you want to clean this up -->
+  <script>
+      $("#menu-close").click(function(e) {
+          e.preventDefault();
+          $("#sidebar-wrapper").toggleClass("active");
+      });
+  </script>
+  <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#sidebar-wrapper").toggleClass("active");
+      });
+  </script>
+  <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+              || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html,body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
+          }
+        });
+      });
+    </script>
+
+  </body>
+
+</html>

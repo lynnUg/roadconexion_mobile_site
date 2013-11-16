@@ -11,7 +11,7 @@ def submit_report(request):
 
     # A boolean value for telling the template whether the registration was successful.
     # Set to False initially. Code changes value to True when registration succeeds.
-   
+    object_list=Report.objects.all().order_by('-created_on')
     print "here1"
     # If it's a HTTP POST, we're interested in processing form data.
     if request.method == 'POST':
@@ -28,7 +28,7 @@ def submit_report(request):
             the_report.save()
             return render_to_response(
             'posts.html',
-            {'form':Report_form},
+            {'object_list':object_list},
             context)
 
         else:
