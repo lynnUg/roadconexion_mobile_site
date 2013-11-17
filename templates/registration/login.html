@@ -8,6 +8,8 @@
 
     	 <button id="submit" name="submit" class="btn btn-primary">Login with Facebook</button>
     	</form>
+    	</div>
+<div class="deets">
     	<form method="post" id="Follow" action="{% url 'socialauth_begin' 'twitter' %}">
     		{% csrf_token %}
 
