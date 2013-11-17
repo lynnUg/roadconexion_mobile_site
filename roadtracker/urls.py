@@ -6,6 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
 from mobile.models import Report
+from registration.views import (RegistrationView,ActivationView)
 urlpatterns = patterns('',
     # Examples:
      url(r'^view_reports$', ListView.as_view(queryset=Report.objects.all().order_by('-created_on'),

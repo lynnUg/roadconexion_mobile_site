@@ -3,14 +3,15 @@
  <div id="header">
     
     <div class="deets">
-    <button> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></button>
+    <p><button> <a href="{% url 'socialauth_begin' 'facebook' %}">Login with Facebook</a></button></p>
     <p> <button> <a href="{% url 'socialauth_begin' 'twitter' %}">Login with Twitter</a></button></p>
+
 </div>
 </div>
 <div id="content">
 
       <div class="purple">
-<div class="h1">Login</div>
+<div class="h1">Login with Roadconexion account</div>
 
     
 <form method="post" id="frmLogin" action="{{ app_path }}">
@@ -41,6 +42,7 @@
      
     <div class="clear"></div>
 </form>
+<p class="notice">Not registered? <a href="/register">Sign up here.</a></p>
 
     </div>
 </div>
