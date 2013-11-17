@@ -3,8 +3,17 @@
  <div id="header">
     
     <div class="deets">
-    <p> <a href="{% url 'socialauth_begin' 'facebook' %}"><button>Login with Facebook</a></button></p>
-    <p>  <a href="{% url 'socialauth_begin' 'twitter' %}"><button>Login with Twitter</button></a></p>
+    	<form method="post" id="Follow" action="{% url 'socialauth_begin' 'facebook' %}">
+    		{% csrf_token %}
+
+    	 <button id="submit" name="submit" class="btn btn-primary">Login with Facebook</button>
+    	</form>
+    	<form method="post" id="Follow" action="{% url 'socialauth_begin' 'twitter' %}">
+    		{% csrf_token %}
+
+    	 <button id="submit" name="submit" class="btn btn-primary">Login with Twitter</button>
+    	</form>
+   
 
 </div>
 </div>
