@@ -51,7 +51,7 @@ def search(request):
 	if request.method == 'POST':
 
 		 starts_with=request.POST['road_name']
-		 object_list=Report.objects.filter(road_name__startswith=starts_with).order_by('-created_on')
+		 object_list=Report.objects.filter(road_name__icontains=starts_with).order_by('-created_on')
 		 return render_to_response(
             'posts.html',
             {'object_list':object_list},
