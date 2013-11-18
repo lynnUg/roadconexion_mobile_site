@@ -161,18 +161,7 @@ SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
 SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
 SOCIAL_AUTH_ENABLED_BACKENDS = ('google', 'twitter','facebook')
-SOCIAL_AUTH_PIPELINE = (
-    'social.pipeline.social_auth.associate_by_email',
-    'social.pipeline.social_auth.social_details',
-    'social.pipeline.social_auth.social_uid',
-    'social.pipeline.social_auth.auth_allowed',
-    'social.pipeline.social_auth.social_user',
-    'social.pipeline.user.get_username',
-    'social.pipeline.user.create_user',
-    'social.pipeline.social_auth.associate_user',
-    'social.pipeline.social_auth.load_extra_data',
-    'social.pipeline.user.user_details'
-)
+
 TWITTER_CONSUMER_KEY         = 'lUAz0ohXMHvdMeXlWtO3Ww'
 TWITTER_CONSUMER_SECRET      = 'sYOck56Sq4WwWoq1tvqm3SbtzjNfGD0u16T7ZE9ZuEE'
 FACEBOOK_APP_ID              = '1427845844100530'
