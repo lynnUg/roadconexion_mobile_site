@@ -75,3 +75,15 @@ def report(request):
             'report.html',
             {'form':Report_form},
             context)
+    
+@login_required
+def profile(request):
+    print "email", request.user.username
+    object_list=Report.objects.filter(user=request.user)
+    return render_to_response("profile.html",{'object_list':object_list},context_instance=RequestContext(request))
+@login_required
+def delete(request,pk):
+    report = Report.objects.filter(pk=int(pk))
+    report.delete()
+    object_list=Report.objects.filter(user=request.user)
+    return render_to_response("profile.html",{'object_list':object_list},context_instance=RequestContext(request))

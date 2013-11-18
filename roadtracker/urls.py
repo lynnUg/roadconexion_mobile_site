@@ -38,6 +38,12 @@ urlpatterns = patterns('',
      url(r'^follow/$',
         'mobile.views.follow',
         name='follow'),
+     url(r'^delete/(\d+)/$',
+        'mobile.views.delete',
+        name='delete_story'),
+      url(r'^getuser/$',
+        'mobile.views.profile',
+        name='get_profile'),
 
 )
 if settings.DEBUG:
