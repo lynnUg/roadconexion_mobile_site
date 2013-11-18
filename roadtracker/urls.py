@@ -44,6 +44,10 @@ urlpatterns = patterns('',
       url(r'^getuser/$',
         'mobile.views.profile',
         name='get_profile'),
+      url(r'^view_reports/(\w+)$',
+        'mobile.views.reports_sorted',
+        name='reports_sorted'),
+      
 
 )
 if settings.DEBUG:

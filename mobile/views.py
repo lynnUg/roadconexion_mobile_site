@@ -75,7 +75,13 @@ def report(request):
             'report.html',
             {'form':Report_form},
             context)
-    
+def reports_sorted(request,report_type):
+    context = RequestContext(request)
+    object_list=Report.objects.filter(type_report=report_type).order_by('-created_on')
+    return render_to_response(
+            'posts.html',
+            {'object_list':object_list},
+            context)
 @login_required
 def profile(request):
     print "email", request.user.username

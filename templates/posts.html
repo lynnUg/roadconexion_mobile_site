@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div id="header">
+ <div class="other">
+  <a><font face="verdana" color="red" style="text-transform: lowercase;">Sort by</font></a>
+   || <a href="/view_reports/Accidents"> Accidents </a>||
+   <a href="/view_reports/RoadStatus"> RoadStatus </a>||
+   <a href="/view_reports/Trafficjam"> Traffic jam</a>||
+    <a href="/view_reports"> All</a>||
+     <a href="/report/"> Submit Traffic Update</a>
+   </div>
+ </div>
 {%if object_list %}
 <form  class="form-horizontal" action="{% url 'search' %}" method="POST">
 	{% csrf_token %}
     <div class="row">
        
-        <label for="road">Search Reports</label>
+        <label for="road">Search Updates by Road</label>
         
         
         <input id="road" type="text" class="required" name="road_name" maxlength="200" value="" />
@@ -14,7 +23,7 @@
     <div class="control-group">
   <label class="control-label" for="submit"></label>
   <div class="controls">
-    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+    <button  id="submit" name="submit" class="btn btn-primary">Submit</button>
   </div>
 </div>
    </form>
@@ -38,7 +47,7 @@
          
         </span>
         posted {{ link.created_on|timesince }} ago by {{link.user.username}}
-        <a class="btn btn-primary" >{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a  class="btn btn-primary" >{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
       </p>
     </td>
   </tr>
