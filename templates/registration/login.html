@@ -1,60 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
- <div id="header">
+ <div id="social">
     
-    <div class="deets">
+    <div class="facebook">
     	<form method="post" id="facebool" action="{% url 'socialauth_begin' 'facebook' %}">
     		{% csrf_token %}
 
     	 <button id="submit" name="submit" class="btn btn-primary">Login with Facebook</button>
     	</form>
-    	</div>
-<div class="deets">
+    </div>
+    <div class="twitter">
     	<form method="post" id="twitter" action="{% url 'socialauth_begin' 'twitter' %}">
     		{% csrf_token %}
 
     	 <button id="submit" name="submit" class="btn btn-primary">Login with Twitter</button>
-    	</form>
-   
-
-</div>
+        </form>
+    </div>
 </div>
 <div id="content">
-
-      <div class="purple">
-<div class="h1">Login with Roadconexion account</div>
-
-    
-<form method="post" id="frmLogin" action="{{ app_path }}">
-{% csrf_token %}
-{{ form.non_field_errors}}
-    <div class="row">
-       {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
-    <label for="id_username" class="required">Username</label> {{ form.username }}
-    </div>
-    <div class="row">
-        {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-    <label for="id_password" class="required">Password</label> {{ form.password }}
-    <input type="hidden" name="this_is_the_login_form" value="1" />
-    <input type="hidden" name="next" value="{{ next }}" />
-    </div>
-    
+    <div class="purple">
+    <div class="h1">Login with Roadconexion account</div>  
+    <form method="post" id="frmLogin" action="{{ app_path }}">
+        {% csrf_token %}
+        {{ form.non_field_errors}}
         <div class="row">
-             <font face="verdana" color="red">{{ current|safe}}</font>
-             
+            {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
+            <label for="id_username" class="required">Username</label> {{ form.username }}
         </div>
-    
-    <div class="control-group">
-  <label class="control-label" for="submit"></label>
-  <div class="controls">
-    <button id="submit" name="submit" class="btn btn-primary">Log in</button>
-  </div>
-</div>
-     
-    <div class="clear"></div>
-</form>
-<p class="notice">Not registered? <a href="/register">Sign up here.</a></p>
+        <div class="row">
+            {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+            <label for="id_password" class="required">Password</label> {{ form.password }}
+            <input type="hidden" name="this_is_the_login_form" value="1" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        
+        <div class="row">
+            <font face="verdana" color="red">{{ current|safe}}</font>
+        </div>
 
+        <div class="control-group">
+            <label class="control-label" for="submit"></label>
+            <div class="controls">
+                <button id="submit" name="submit" class="btn btn-primary">Log in</button>
+            </div>
+        </div>
+         
+        <div class="clear"></div>
+    </form>
+    <p class="notice">Not registered? <a href="/register">Sign up here.</a></p>
     </div>
 </div>
       

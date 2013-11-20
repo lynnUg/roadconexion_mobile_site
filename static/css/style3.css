@@ -64,15 +64,39 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
     color: #FFF;
     margin: 0 1% 0;
 }
-
 #sort{
 
 }
-
 #sort a{
 
 }
+
+#social {
+    width: 100%;
+}
+#social .facebook {
+    margin: 10px 0;
+}
+#social .twitter {
+    margin: 10px 0;
+}
+.facebook button {
+    width: 80%;
+    height: 40px;
+    margin: 10px 10%;
+    background: rgb(23, 23, 109);
+    color: #FFF;
+}
+.twitter button {
+    width: 80%;
+    height: 40px;
+    margin: 5px 10%;
+    background: rgb(90, 186, 240);
+    color: #FFF;
+}
+
 /* BANNER and DIVIDER */
+
 #divider, #banner { padding: 0; margin: 0 0 0 -15px; }
 #divider img { display: block; padding: 0; margin: 0 auto; }
 #banner img {display: block; padding: ; margin: 0 auto }
