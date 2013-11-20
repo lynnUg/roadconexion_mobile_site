@@ -39,13 +39,12 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 
 #header a:last-child{
 	text-align: right;
-	margin: 0 2% 0 0;
+	margin: 15px 2% 0 0;
 	color: rgb(74, 221, 74);
 	font-weight: bold;
 }
 
 #header a img{
-	width: 100%;
 }
 
 #menu {
@@ -70,7 +69,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 }
 
 #sort a{
-	
+
 }
 /* BANNER and DIVIDER */
 #divider, #banner { padding: 0; margin: 0 0 0 -15px; }
