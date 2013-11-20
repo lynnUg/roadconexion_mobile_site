@@ -1,57 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 <div id="sort">
- <div class="deets">
-  <a><font face="verdana" color="red" style="text-transform: lowercase;">Sort by</font></a>
-   || <a href="/view_reports/Accidents"> Accidents </a>||
-   <a href="/view_reports/RoadStatus"> RoadStatus </a>||
-   <a href="/view_reports/TrafficJam"> Traffic jam</a>||
-    <a href="/view_reports"> All</a>||
-     <a href="/report/"> Submit Traffic Update</a>
-   </div>
- </div>
+  <div class="deets">
+    <a><font face="verdana" color="red" style="text-transform: lowercase;">Sort by</font></a>||
+    <a href="/view_reports/Accidents"> Accidents </a>||
+    <a href="/view_reports/RoadStatus"> RoadStatus </a>||
+    <a href="/view_reports/TrafficJam"> TrafficJam</a>||
+    <a href="/view_reports"> All</a>
+  </div>
+</div>
 {%if object_list %}
 <form  class="form-horizontal" action="{% url 'search' %}" method="POST">
 	{% csrf_token %}
-    <div class="row">
-       
-        <label for="road">Search Updates by Road</label>
-        
-        
-        <input id="road" type="text" class="required" name="road_name" maxlength="200" value="" />
-    </div>
-    <div class="control-group">
-  <label class="control-label" for="submit"></label>
-  <div class="controls">
-    <button  id="submit" name="submit" class="btn btn-primary">Submit</button>
+  <div class="row">
+    <label for="road">Search Updates by Road</label>
+    <input id="road" type="text" class="required" name="road_name" maxlength="200" value="" />
   </div>
-</div>
-   </form>
+  <div class="control-group">
+    <label class="control-label" for="submit"></label>
+    <div class="controls">
+      <button  id="submit" name="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
 <table border="1">
 <col width="1"></col>
 <col></col>
 <thead>
- 
-    <th>Roadtrack</th>
+  <th>Roadtrack</th>
 </thead>
 <tbody>
-
   {% for link in object_list %}<tr class="{% cycle odd,even %}">
-  
     <td class="item">
       <a >{{ link.road_name|escape }}</a>
       <p>{{link.report}}</p>
       <p class="details">
         <span class="score" id="linkscore{{ link.id }}"
               title="after {{ score.num_votes|default:0 }} vote{{ score.num_votes|default:0|pluralize }}">
-         
         </span>
         posted {{ link.created_on|timesince }} ago by {{link.user.username}}
         <a  class="btn btn-primary" >{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
       </p>
     </td>
   </tr>
-
   {% endfor %}
 </tbody>
 </table>
@@ -61,24 +52,19 @@
         <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
             <span class="step-links">
                 {% if page_obj.has_previous %}
-                    <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
+                  <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
                 {% endif %}
-
                 <span class="current">
                     &nbsp; Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
                 </span>
-
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
+                  <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
                 {% endif %}
             </span>
-        </div>
-   
+        </div>   
         {% endif %}
-
 {% else %}
     <h1>No recent posts</h1>
 {% endif %}
-
 
 {% endblock %}
