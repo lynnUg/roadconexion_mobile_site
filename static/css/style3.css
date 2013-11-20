@@ -40,17 +40,38 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 #header a:last-child{
 	text-align: right;
 	margin: 0 2% 0 0;
+	color: rgb(74, 221, 74);
+	font-weight: bold;
 }
 
 #header a img{
 	width: 100%;
 }
 
-#header .block1 a{margin: 0; font-size: 1em; font-weight: bold; text-transform: uppercase; color: #fff; }
-
 #menu {
+	clear: both;
 }
+
+#menu a {
+    width: 31%;
+    float: left;
+    display: block;
+    height: 15px;
+    font-size: 14px;
+    padding: 10px 0;
+    text-align: center;
+    background: #616161;
+    color: #FFF;
+    margin: -3px 1% 0;
+}
+
+#sort{
+
+}
+
+#sort a{
 	
+}
 /* BANNER and DIVIDER */
 #divider, #banner { padding: 0; margin: 0 0 0 -15px; }
 #divider img { display: block; padding: 0; margin: 0 auto; }
