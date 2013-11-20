@@ -9,26 +9,47 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 #site { background: #1B0862; padding: 2px 0; text-align: center; font-size: 11px; color: #896d55; }
 
 /* HEADER */
-#header { margin: 0; background: #fff; }
-	#header .logo { clear: both; padding: 10px; display: block; text-align: center; }
-	#header .logo img { display: block; padding: 0; margin: 0 auto; }
-	#header .deets { clear: both; padding: 5px; border-top: 1px solid #e1e1e1; color: #cacaca; line-height: 14px; text-align: center; }
-    #header .deets a { padding: 3px 0 0 0; font-size: 11px; font-weight: bold; color: #1B0862; text-transform: uppercase; }
-    #header .other { clear: both; padding: 5px; border-top: 1px solid #e1e1e1; color: #cacaca; line-height: 14px; text-align: right; }
-    #header .other a { padding: 3px 0 0 0; font-size: 11px; font-weight: bold; color: #1B0862; text-transform: uppercase; }
-	#header .nav { clear: both; padding: 8px 0 6px 10px; background-color: #1B0862; color: #ff8e00; text-align: center; }
-	#header .nav a { margin: 0; font-size: 1em; font-weight: bold; text-transform: uppercase; color: #fff; }
-	#header .nav .active { color: #000; }
-	#header .block1 {
-    color: #ff8e00;
-    width: 70px;
-    border: 2px solid black;
-    background-color: #1B0862;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+#header {
+	margin: 0;
+	height: 50px;
+	background: rgb(114,114,114); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(114,114,114,1) 0%, rgba(12,12,12,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(114,114,114,1)), color-stop(100%,rgba(12,12,12,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(114,114,114,1) 0%,rgba(12,12,12,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(114,114,114,1) 0%,rgba(12,12,12,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(114,114,114,1) 0%,rgba(12,12,12,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(114,114,114,1) 0%,rgba(12,12,12,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#727272', endColorstr='#0c0c0c',GradientType=0 ); /* IE6-9 */;
 }
+
+#header a {
+    float: left;
+    width: 32%;
+    text-align: center;
+    color: #FFF;
+    font-size: 14px;
+    display: block;
+    margin-top: 15px;
+}
+
+#header a:first-child{
+	text-align: left;
+	margin: 0 0 0 2%;
+}
+
+#header a:last-child{
+	text-align: right;
+	margin: 0 2% 0 0;
+}
+
+#header a img{
+	width: 100%;
+}
+
 #header .block1 a{margin: 0; font-size: 1em; font-weight: bold; text-transform: uppercase; color: #fff; }
+
+#menu {
+}
 	
 /* BANNER and DIVIDER */
 #divider, #banner { padding: 0; margin: 0 0 0 -15px; }
