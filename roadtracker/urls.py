@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import (TemplateView,ListView)
+from rest_framework import viewsets, routers
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -47,6 +48,15 @@ urlpatterns = patterns('',
       url(r'^view_reports/(\w+)$',
         'mobile.views.reports_sorted',
         name='reports_sorted'),
+
+      url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
+      #new urls
+      #url(r'^reports/$', 'mobile.views.report_list'),
+      #url(r'^reports/(?P<pk>[0-9]+)/$', 'mobile.views.report_detail'),
+      #url(r'^report_list/$',
+      #  'mobile.views.report_list',
+       # name='report_list')
       
 
 )
@@ -56,3 +66,13 @@ if settings.DEBUG:
                 (r'profile_images/(?P<path>.*)',
                 'serve',
                 {'document_root': settings.MEDIA_ROOT}), )
+
+
+
+
+
+urlpatterns = patterns('mobile.views',
+   url(r'^reports/$', 'report_list'),
+   url(r'^reports/(?P<pk>[0-9]+)/$', 'report_detail'),
+)
+

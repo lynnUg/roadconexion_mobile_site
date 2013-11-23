@@ -4,6 +4,17 @@ from mobile.models import Report,ReportForm
 from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
+
+
+#for the RESTful API
+#from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from mobile.models import Report
+from mobile.serializers import MobileSerializer
+#END OF RESTFUL API
+
 @login_required
 def submit_report(request):
     # Like before, get the request's context.
@@ -93,3 +104,60 @@ def delete(request,pk):
     report.delete()
     object_list=Report.objects.filter(user=request.user).order_by('-created_on')
     return render_to_response("profile.html",{'object_list':object_list},context_instance=RequestContext(request))
+
+
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content into JSON.
+    """
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
+
+
+@csrf_exempt
+def report_list(request):
+    """
+    List all code reports, or create a new report.
+    """
+    if request.method == 'GET':
+        report = Report.objects.all()
+        serializer = MobileSerializer(report, many=True)
+        return JSONResponse(serializer.data)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = MobileSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data, status=201)
+        else:
+            return JSONResponse(serializer.errors, status=400)
+
+@csrf_exempt
+def report_detail(request, pk):
+    """
+    Retrieve, update or delete a report.
+    """
+    try:
+        report = Report.objects.get(pk=pk)
+    except Report.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = MobileSerializer(report)
+        return JSONResponse(serializer.data)
+
+    elif request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = MobileSerializer(report, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JSONResponse(serializer.data)
+        else:
+            return JSONResponse(serializer.errors, status=400)
+
+    elif request.method == 'DELETE':
+        report.delete()
+        return HttpResponse(status=204)
