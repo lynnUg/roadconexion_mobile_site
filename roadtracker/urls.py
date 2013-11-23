@@ -49,7 +49,7 @@ urlpatterns = patterns('',
         'mobile.views.reports_sorted',
         name='reports_sorted'),
 
-      url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+      url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
       #new urls
       #url(r'^reports/$', 'mobile.views.report_list'),
@@ -57,6 +57,8 @@ urlpatterns = patterns('',
       #url(r'^report_list/$',
       #  'mobile.views.report_list',
        # name='report_list')
+        url(r'^reports/$', 'mobile.views.report_list', name='report_list'),
+   url(r'^reports/(?P<pk>[0-9]+)/$', 'mobile.views.report_detail', name='report_detail'),
       
 
 )
@@ -70,9 +72,4 @@ if settings.DEBUG:
 
 
 
-
-urlpatterns = patterns('mobile.views',
-   url(r'^reports/$', 'report_list'),
-   url(r'^reports/(?P<pk>[0-9]+)/$', 'report_detail'),
-)
 
