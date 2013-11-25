@@ -2,6 +2,11 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import (TemplateView,ListView)
 from rest_framework import viewsets, routers
 
+from mobile import views
+
+
+from rest_framework.urlpatterns import format_suffix_patterns
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -57,11 +62,19 @@ urlpatterns = patterns('',
       #url(r'^report_list/$',
       #  'mobile.views.report_list',
        # name='report_list')
-        url(r'^reports/$', 'mobile.views.report_list', name='report_list'),
-   url(r'^reports/(?P<pk>[0-9]+)/$', 'mobile.views.report_detail', name='report_detail'),
+        #url(r'^reports/$', 'mobile.views.report_list', name='report_list'),
+        url(r'^reports/$', views.ReportList.as_view(), name='report_list'),
+   url(r'^reports/(?P<pk>[0-9]+)/$', views.ReportDetail.as_view(), name='report_list') 
+
+
+   
       
 
 )
+
+urlpatterns = format_suffix_patterns(urlpatterns)
+
+
 if settings.DEBUG:
         urlpatterns += patterns(
                 'django.views.static',

@@ -7,12 +7,22 @@ from django.contrib.auth.decorators import login_required
 
 
 #for the RESTful API
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+#from django.http import HttpResponse
+#from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from mobile.models import Report
 from mobile.serializers import MobileSerializer
+from django.http import Http404
+from rest_framework.views import APIView
+#from rest_framework import status
+#
+"mixins and generics for simpler classes"
+#from rest_framework import mixins
+#from rest_framework import generics
 #END OF RESTFUL API
 
 @login_required
@@ -106,58 +116,86 @@ def delete(request,pk):
     return render_to_response("profile.html",{'object_list':object_list},context_instance=RequestContext(request))
 
 
-class JSONResponse(HttpResponse):
-    """
-    An HttpResponse that renders its content into JSON.
-    """
-    def __init__(self, data, **kwargs):
-        content = JSONRenderer().render(data)
-        kwargs['content_type'] = 'application/json'
-        super(JSONResponse, self).__init__(content, **kwargs)
+#we dont need this class anymore
+#class JSONResponse(HttpResponse):
+ #   """
+  #  An HttpResponse that renders its content into JSON.
+   # """
+    #def __init__(self, data, **kwargs):
+     #   content = JSONRenderer().render(data)
+      #  kwargs['content_type'] = 'application/json'
+       # super(JSONResponse, self).__init__(content, **kwargs)
 
 
-@csrf_exempt
-def report_list(request):
+#@csrf_exempt
+#@api_view(['GET', 'POST'])
+#def report_list(request, format=None):
+
+#we comment this class out, since we have simplified it below using generics
+class ReportList(APIView):
     """
     List all code reports, or create a new report.
     """
-    if request.method == 'GET':
+    
+    def get(self, request, format=None):
         report = Report.objects.all()
         serializer = MobileSerializer(report, many=True)
-        return JSONResponse(serializer.data)
+        return Response(serializer.data)
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = MobileSerializer(data=data)
+    def post(self, request, format=None):
+        serializer = MobileSerializer(data=request.DATA)
         if serializer.is_valid():
             serializer.save()
-            return JSONResponse(serializer.data, status=201)
-        else:
-            return JSONResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@csrf_exempt
-def report_detail(request, pk):
+#simpler
+#class ReportList(generics.ListCreateAPIView):
+#    queryset = Report.objects.all()
+#    serializer_class = MobileSerializer
+
+
+
+#@csrf_exempt
+#@api_view(['GET', 'PUT', 'DELETE'])
+#def report_detail(request, pk, format=None):
+
+#we comment this class out, since we have simplified it below using generics
+class ReportDetail(APIView):
+          
     """
     Retrieve, update or delete a report.
     """
-    try:
-        report = Report.objects.get(pk=pk)
-    except Report.DoesNotExist:
-        return HttpResponse(status=404)
+  
 
-    if request.method == 'GET':
-        serializer = MobileSerializer(report)
-        return JSONResponse(serializer.data)
+    def get_object(self, pk):
+        try:
+            return Report.objects.get(pk=pk)
+        except Report.DoesNotExist:
+            raise Http404
 
-    elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = MobileSerializer(report, data=data)
+    def get(self, request, pk, format=None):
+        report = self.get_object(pk)
+        serializer = MobileSerializer(snippet)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        report = self.get_object(pk)
+        serializer = MobileSerializer(snippet, data=request.DATA)
         if serializer.is_valid():
             serializer.save()
-            return JSONResponse(serializer.data)
-        else:
-            return JSONResponse(serializer.errors, status=400)
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
+    def delete(self, request, pk, format=None):
+        report = self.get_object(pk)
         report.delete()
-        return HttpResponse(status=204)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+#simpler
+#class ReportDetail(generics.RetrieveUpdateDestroyAPIView):
+#    queryset = Report.objects.all()
+#    serializer_class = MobileSerializer
+
+
+ 
