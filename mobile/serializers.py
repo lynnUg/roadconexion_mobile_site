@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.forms import widgets
 from django import forms
 from mobile.models import Report

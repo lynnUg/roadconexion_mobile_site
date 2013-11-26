@@ -64,8 +64,10 @@ urlpatterns = patterns('',
        # name='report_list')
         #url(r'^reports/$', 'mobile.views.report_list', name='report_list'),
         url(r'^reports/$', views.ReportList.as_view(), name='report_list'),
-   url(r'^reports/(?P<pk>[0-9]+)/$', views.ReportDetail.as_view(), name='report_list') 
-
+   url(r'^reports/(?P<pk>[0-9]+)/$', views.ReportDetail.as_view(), name='report_list') ,
+    url(r'^about/$', TemplateView.as_view(template_name='about.html')),
+     url(r'^terms/$', TemplateView.as_view(template_name='terms.html')),
+ url(r'^login/$',  'django.contrib.auth.views.login'),
 
    
       

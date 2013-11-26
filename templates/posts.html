@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="sort">
-  <div class="deets">
-    <a><font face="verdana" color="red" style="text-transform: lowercase;">Sort by</font></a>||
-    <a href="/view_reports/Accidents"> Accidents </a>||
-    <a href="/view_reports/RoadStatus"> RoadStatus </a>||
-    <a href="/view_reports/TrafficJam"> TrafficJam</a>||
-    <a href="/view_reports"> All</a>
-  </div>
-</div>
+
 {%if object_list %}
 <form  class="form-horizontal" action="{% url 'search' %}" method="POST">
 	{% csrf_token %}
@@ -39,7 +31,7 @@
               title="after {{ score.num_votes|default:0 }} vote{{ score.num_votes|default:0|pluralize }}">
         </span>
         posted {{ link.created_on|timesince }} ago by {{link.user.username}}
-        <a  class="btn btn-primary" >{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a  class="btn btn-primary" href="/view_reports/{{link.type_report}}">{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
       </p>
     </td>
   </tr>
