@@ -19,15 +19,11 @@
 <!--<div id="site">RoadConexion</div>-->
   {% if user.is_authenticated %}
   <div id="header">
-    <a href="/follow"><img src="/static/img/logo1.png" border="0" /></a>
+    <a href="/view_reports"><img src="/static/img/logo1.png" border="0" /></a>
     <a href="#">{{user.username}}</a>
     <a  ></a>
   </div>
-  <div id="menu">
-    <a href='/view_reports'>view updates</a>
-    <a href='/report'>submit update</a>
-    <a href='/getuser'>my updates</a>
-  </div>
+  
     {% else %}
     <div id="header">
     <a href="/"><img src="/static/img/logo1.png" border="0" /></a>
