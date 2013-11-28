@@ -24,10 +24,10 @@
       {{form.errors.type_report}}
       <label for="id_type_report">Type of report</label>   
       <select name="type_report" id="id_type_report">
-        <option selected="selected">{{form.cleaned_data.type_report|safe}}</option>
         <option value="TrafficJam">TrafficJam</option>
         <option value="Accident">Accident</option>
         <option value="RoadStatus">RoadStatus</option>
+        <option selected="selected">{{form.cleaned_data.type_report|safe}}</option>
       </select>
     </div>
  
