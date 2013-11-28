@@ -88,6 +88,7 @@ def follow(request):
             'posts.html',
             {'object_list':object_list},
             context)
+@login_required
 def report(request):
 	context = RequestContext(request)
 	Report_form = ReportForm()
