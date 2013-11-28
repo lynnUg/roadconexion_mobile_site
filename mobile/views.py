@@ -65,7 +65,7 @@ def submit_report(request):
             'report.html',
             {'form':Report_form},
             context)
-@login_required
+
 def search(request):
 	context = RequestContext(request)
 	object_list=Report.objects.all()
@@ -81,7 +81,6 @@ def search(request):
             'posts.html',
             {'object_list':object_list},
             context)
-@login_required
 def follow(request):
 	context = RequestContext(request)
 	object_list=Report.objects.all().order_by('-created_on')
