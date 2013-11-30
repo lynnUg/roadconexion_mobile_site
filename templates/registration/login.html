@@ -20,7 +20,7 @@
 <div id="content">
     <div class="purple">
     <div class="h1">Login with Roadconexion account</div>  
-    <form method="post" id="frmLogin" action="{{ app_path }}">
+    <form method="post" id="frmLogin" action="{{ request.get_full_path }}">
         {% csrf_token %}
         {{ form.non_field_errors}}
         <div class="row">
