@@ -30,11 +30,11 @@
         </div>  
     </div>
 
-<form method="post" id="Follow" action="/view_reports">
+<form method="get" id="Follow" action="/view_reports">
 {% csrf_token %}
         <strong><input type="submit" name="submit" value="Follow Traffic Updates" class="btn" /></strong>
 </form>
-<form method="post" id="Follow" action="/report/">
+<form method="get" id="Follow" action="/report/">
     {% csrf_token %}
         <strong><input type="submit" name="submit" value="Submit Traffic Update" class="btn" /></strong>
 </form>
