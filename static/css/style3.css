@@ -50,21 +50,20 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 
 #menu {
 	clear: both;
+	position: relative;
+	height: 35px;
 }
 
 #menu a {
     width: 31%;
     float: left;
     display: block;
-    height: 15px;
-    font-size: 14px;
+    font-size: 1.3em;
+    font-weight: bold;
     padding: 10px 0;
     text-align: center;
-    background: #616161;
-    color: #FFF;
+    color: #666;
     margin: 0 1% 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 #sort{
 
@@ -76,40 +75,66 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 #social {
     width: 100%;
 }
-#social .facebook {
-    margin: 10px 0;
-}
-#social .twitter {
-    margin: 10px 0;
-}
-.facebook button {
-    width: 80%;
-    height: 40px;
-    margin: 10px 10%;
-    background: rgb(23, 23, 109);
-    color: #FFF;
-}
-.twitter button {
-    width: 80%;
-    height: 40px;
-    margin: 5px 10%;
-    background: rgb(90, 186, 240);
-    color: #FFF;
-}
+	#social .facebook {
+	    margin: 10px 0;
+	}
+	#social .twitter {
+	    margin: 10px 0;
+	}
+	.facebook button {
+	    width: 80%;
+	    height: 40px;
+	    margin: 10px 10%;
+	    background: rgb(23, 23, 109);
+	    color: #FFF;
+	}
+	.twitter button {
+	    width: 80%;
+	    height: 40px;
+	    margin: 5px 10%;
+	    background: rgb(90, 186, 240);
+	    color: #FFF;
+	}
 
 .search {
     clear: both;
-    width: 98%;
-    margin: 1%;
+    margin: 10px;
 }
-	.container {
-	    width: 100%;
+	.search label {
+	    display: block;
+	    padding: 5px;
+	    background: #EDF2F5;
+	    margin: 0 0 -2px;
 	}
+	.search input {
+		width: 73%;
+		padding: 10px 1%;
+		float: left;
+		border: none;
+	}
+	.search input:focus {
+	    border: none;
+	    outline: none;
+	    background: #FFFFFF;
+	}
+	.search button {
+	    padding: 9px 0;
+	    width: 25%;
+	    float: right;
+	    border: none;
+	    background: #05273D;
+	    color: #FFF;
+	}
+
+.container {
+	    width: 100%;
+	
+	    clear: both;
+}
 	.title {
-	    width: 96%;
-	    padding: 1%;
-	    margin: 1%;
-	    background: #24374B;
+	    padding: 10px;
+	    margin: 10px 10px -5px;
+	    background: #0C2641;
 	    color: #FFF;
 	    font-size: 1.2em;
 	}
@@ -117,9 +142,8 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 		width: 100%;
 	}
 	.item {
-	    width: 96%;
-	    padding: 1%;
-	    margin: 1%;
+	    padding: 10px;
+	    margin: 10px;
 	    background: #FFF;
 	    border-radius: 2px;
 	    border: solid 1px #9E9E9E;
@@ -187,15 +211,6 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	.content-inner .social { padding: 5px; font-weight: bold; line-height: 17px; font-size: 11px; }
 	.content-inner .social p { float: left; padding: 3px 8px 0 0; }
 	.content-inner .social img { padding: 3px 3px 0 0; }
-
-    input{ width: 100%; padding: 8px 0; }
-	table { width: 100%; }
-
-	th { padding: 5px; background: #872e4d; color: #fff; }
-	th,
-	td { padding: 5px; text-align: left; }
-	td a { color: #8e1a15; }
-	tr { border-bottom: 1px solid #272727; }	
 
 /* COMMENTS */
 .comment {}
