@@ -19,15 +19,11 @@
     </div>
   </div>
 </form>
-<table border="1">
-<col width="1"></col>
-<col></col>
-<thead>
-  <th>Roadtrack</th>
-</thead>
-<tbody>
-  {% for link in object_list %}<tr class="{% cycle odd,even %}">
-    <td class="item">
+<div class="container">
+  <div class="title">Roadtrack</div>
+  <div class="items">
+  {% for link in object_list %}
+    <div class="item">
       <a >{{ link.road_name|escape }}</a>
       <p>{{link.report}}</p>
       <p class="details">
@@ -37,30 +33,27 @@
         posted {{ link.created_on|timesince }} ago by {{link.user.username}}
         <a  class="btn btn-primary" href="/view_reports/{{link.type_report}}">{{link.type_report}} <span class="glyphicon glyphicon-chevron-right"></span></a>
       </p>
-    </td>
-  </tr>
+    </div>
   {% endfor %}
-</tbody>
-</table>
-
+  </div>
+</div>
   <!-- Next/Prev page links  -->
-        {% if is_paginated %}
-        <div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
-            <span class="step-links">
-                {% if page_obj.has_previous %}
-                  <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
-                {% endif %}
-                <span class="current">
-                    &nbsp; Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </span>
-                {% if page_obj.has_next %}
-                  <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
-                {% endif %}
-            </span>
-        </div>   
-        {% endif %}
-{% else %}
-    <h1>No recent posts</h1>
+{% if is_paginated %}
+<div class="pagination" style="margin-top: 20px; margin-left: -20px; ">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
+    {% endif %}
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>  
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
+    {% endif %}
+  </span>
+</div>   
 {% endif %}
-
+{% else %}
+<h1>No recent posts</h1>
+{% endif %}
 {% endblock %}
