@@ -160,7 +160,6 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 
 .pagination{
 	margin: 0 10px;
-	background: #0C2641;
 }
 
 /* BANNER & DIVIDER*/
@@ -233,12 +232,29 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	.comment .stamp { margin: 0 0 5px ; padding: 0 5px 0 0!important; }
 	
 /* FOOTER */
-#footer { color: #fff; padding: 5px; background-color: #1B0862; line-height: 17px; font-size: 11px; font-weight: bold; text-align: center; }
-	#footer span { clear: both; padding: 2px 0; }
-	#footer a { clear: both; padding: 2px 0; color: #fff; }
+#footer {
+	color: #fff;
+	padding: 5px;
+	background: #0C2641;
+	line-height: 17px;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+}
+	#footer span {
+		clear: both;
+		padding: 2px 0;
+	}
+	#footer a {
+		clear: both;
+		padding: 2px 0;
+		color: #fff;
+	}
 
 /* COLOURS */
-#content .purple .h1 { background: #872e4d; }
+#content .purple .h1 {
+	background: #872e4d;
+}
 	#content .purple .content-inner .item .meta .title a { color: #872e4d; }
 	#content .purple .content-inner .item-nav { background: #eadbe0; color: #bfbfbf; }
 	#content .purple .content-inner .item-nav a { color: #872e4d; }
