@@ -163,14 +163,12 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	background: #0C2641;
 }
 
-/*
-
-/* BANNER & DIVIDER
+/* BANNER & DIVIDER*/
 #divider, #banner { padding: 0; margin: 0 0 0 -15px; }
 #divider img { display: block; padding: 0; margin: 0 auto; }
 #banner img {display: block; padding: ; margin: 0 auto }
 
-/* CONTENT 
+/* CONTENT */
 #content { color: #666; background: #fff; }
     #content .title .stamp { font-size:12px; font-weight: normal;}
 	#content .errors { padding: 10px; background: #ececec; font-weight: bold; color: #da2127; }
@@ -200,7 +198,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	#content .btn { padding: 3px 8px 4px 8px; border: 0; background: #1B0862; color: #fff; font-weight: bold; }
 	#content .h1 { padding: 6px 10px 5px 10px; background: #1B0862; clear: both; font-size: 1em; font-weight: bold; color: #fff; text-transform: uppercase; text-align: center; }
 
-/* CONTENT INNER
+/* CONTENT INNER */
 .content-inner {}
 	.content-inner p { padding: 0 0 10px 0; margin: 0; }
 	.content-inner p strong { font-weight: bold; }
@@ -227,19 +225,19 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	.content-inner .social p { float: left; padding: 3px 8px 0 0; }
 	.content-inner .social img { padding: 3px 3px 0 0; }
 
-/* COMMENTS
+/* COMMENTS */
 .comment {}
 	.comment img { width: 58px; float: left; padding: 0 10px 0 0; margin: 0; display: inline-block; }
 	.comment .meta { margin: 0 0 0 68px; }
 	.comment .title { margin: 0 0 0 ; font-weight: bold; }
 	.comment .stamp { margin: 0 0 5px ; padding: 0 5px 0 0!important; }
 	
-/* FOOTER
+/* FOOTER */
 #footer { color: #fff; padding: 5px; background-color: #1B0862; line-height: 17px; font-size: 11px; font-weight: bold; text-align: center; }
 	#footer span { clear: both; padding: 2px 0; }
 	#footer a { clear: both; padding: 2px 0; color: #fff; }
 
-/* COLOURS
+/* COLOURS */
 #content .purple .h1 { background: #872e4d; }
 	#content .purple .content-inner .item .meta .title a { color: #872e4d; }
 	#content .purple .content-inner .item-nav { background: #eadbe0; color: #bfbfbf; }
@@ -267,8 +265,3 @@ ul#navigation li {float:left;}
 ul#navigation li a {background:#ffd89b;color:#222;display:block;padding:6px 15px;text-decoration:none;border-right:1px solid #f5ab36;border-top:1px solid #f5ab36;border-right:1px solid #f5ab36;margin:0;}
 ul#navigation li a.selected {border-bottom:1px solid #fff;color:#344385;background:#fff;}
 #mybutton .btn { padding: 3px 8px 4px 8px; border: 0; background: #1B0862; color: #fff; font-weight: bold; }
-.button {
-    display: block;
-    width: 100%;
-}
-*/
