@@ -157,7 +157,18 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	    border-radius: 2px;
 	    border: solid 1px #9E9E9E;
 	}
-
+	.item .details {
+	    background: #f3f3f3;
+	    border-top: 1px solid #dadde1;
+	    display: block;
+	    padding: 10px;
+	    margin: 0px -10px;
+	}
+	.item a {
+	    color: #151A52;
+	    font-weight: bold;
+	}
+	
 .pagination{
 	margin: 0 10px;
 }
