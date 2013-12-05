@@ -15,7 +15,7 @@ spambayes==1.1b1
 static==0.4
 wsgiref==0.1.2
 django-social-auth==0.7.7
-git+git://github.com/tomchristie/django-rest-framework.git@master
+git+git://github.com/tomchristie/django-rest-framework.git@branch:2.4.0
 
 pygments
 
