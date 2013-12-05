@@ -1,23 +1,126 @@
-{% extends "base.html" %}
-{% block content %}
-   
-   <div id="content">
-   <div class="purple">
-        
-    <div class="h1">About RoadConexion</div>
-    <div class="content-inner">
-        <div class="post">
-            <p>
-	
+<!DOCTYPE HTML>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
+  <title>RoadConexion</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/static/css/font-awesome.css" media="screen">
+  <link rel="stylesheet" href="/static/css/normalize.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/static/css/grid.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen">
+  <!-- <link rel="stylesheet" href="css/style.min.css" type="text/css" media="screen"> -->
+  <!--[if IE]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
 
-
-	<strong>How to use RoadConexion</strong></p>
-
-
-
-
-        </div>
+<body>
+  <div class="menu">
+    <div class="container clearfix">
+      <div id="logo" class="grid_3">
+        <img src="/static/images/logo5.png">
+      </div>
+      <div id="nav" class="grid_9 omega">
+        <ul class="navigation">
+          <li data-slide="1">Home</li>
+          <li data-slide="2">Why</li>
+          <li data-slide="3">How</li>
+          <li data-slide="4">Contact</li>
+        </ul>
+      </div>
     </div>
-    
-      </div>   
-{% endblock %}
+  </div>
+  <div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
+  </div>
+  <!--
+  <div class="separator" id="separator1" data-stellar-background-ratio="0.5">
+    <div class="container clearfix"></div>
+  </div>
+  -->
+  <div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
+    <div class="container clearfix">
+      <div id="content" class="grid_12">
+        <h1 class="header">Why</h1>
+      </div>
+      <div class="content">
+        <div  class="grid_4 alpha">
+          <i class="fa fa-clock-o icon-a"></i>
+          <p class="text-a">
+            <b>Save Time</b>
+            <br>Beat the jam and get home or to work faster
+          </p>
+        </div>
+        <div  class="grid_4">
+          <i class="fa fa-shield icon-a"></i>
+          <p class="text-a">
+            <b>Stay Safe</b>
+            <br>Get real time information on road accidents, repairs, blockages
+          </p>
+        </div>
+        <div  class="grid_4 omega">
+          <i class="fa fa-usd icon-a"></i>
+          <p class="text-a">
+            <b>Save Fuel</b>
+            <br>Save on costs that you would spend on fuel
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator" id="separator2" data-stellar-background-ratio="0.5">
+    <div class="container clearfix"></div>
+  </div>
+  <div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
+    <div class="container clearfix">
+      <div id="content" class="grid_12">
+        <h1 class="header">How</h1>
+      </div>
+      <div class="content">
+        <div class="grid_6 alpha">
+          <div  class="grid_12">
+            <i class="fa fa-users icon-b"></i>
+            <p class="text-b">
+              <b>Share traffic updates</b>
+              <br>Let other road users know about traffic jams, road repairs, diversions, potholes, flooded roads and accidents
+            </p>
+          </div>
+          <div  class="grid_12">
+            <i class="fa fa-truck icon-b"></i>
+            <p class="text-b">
+              <b>View traffic updates</b>
+              <br>Get to know real-time traffic conditions from other road users
+            </p>
+          </div>
+          <div  class="grid_12">
+            <i class="fa fa-search icon-b"></i>
+            <p class="text-b">
+              <b>Search roads</b>
+              <br>Get traffic updates on specific roads that you use the most
+            </p>
+          </div>
+        </div>
+        <div class="grid_6 omega image-holder">
+          <img src="/static/images/mobile.png" class="image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator" id="separator3" data-stellar-background-ratio="0.5">
+    <div class="container clearfix"></div>
+  </div>
+  <div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0.5">
+    <div class="container clearfix">
+      <div id="content" class="grid_12"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.stellar.min.js"></script>
+  <script type="text/javascript" src="/static/js/waypoints.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="/static/js/scripts.js"></script>
+  <!-- <script type="text/javascript" src="/static/js/scripts.min.js"></script> -->
+</body>
+</html>
