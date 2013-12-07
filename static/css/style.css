@@ -130,7 +130,8 @@ a:visited {
 	width: 80%;
 }
 .image-holder{
-	margin-top: -50px;
+	margin-top: -80px;
+	height: 400px;
 }
 #slide1{
 	background:url('../images/road.png') no-repeat 50% 50%;
