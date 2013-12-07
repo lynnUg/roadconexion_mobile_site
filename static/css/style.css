@@ -1,7 +1,7 @@
 /* Global */
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: Helvetica, sans-serif;
 	font-weight: 400;
 	font-size: 1em;
 	color: #8a8683;
@@ -99,6 +99,23 @@ a:visited {
 	text-align: left;
 	color: #666;
 }
+.jumbotron {
+    /* text-align: center; */
+    background: rgba(2, 2, 2, 0.56);
+    margin: 100px  0 0;
+    padding: 50px 20px;
+}
+.jumbotron h2 {
+    font-size: 1.5em;
+    color: #FFF;
+}
+.jumbotron p {
+    color: #EEE;
+}
+.jumbotron span {
+    color: rgb(24, 142, 252);
+    /* font-weight: bold; */
+}
 .icon-a{
 	font-size: 4em;
 	display: block;
@@ -130,11 +147,10 @@ a:visited {
 	width: 80%;
 }
 .image-holder{
-	margin-top: -80px;
-	height: 400px;
+	margin-top: -50px;
 }
 #slide1{
-	background:url('../images/road.png') no-repeat 50% 50%;
+	background: url('../images/road.png') no-repeat 0% 50%;
 	height: 420px;
 }
 #separator1{
