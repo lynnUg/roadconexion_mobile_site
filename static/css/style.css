@@ -155,6 +155,17 @@ a:visited {
 .image {
     height: 400px;
 }
+.contacts a {
+    display: block;
+    margin: 20px 10px;
+}
+.contacts i {
+    font-size: 4em;
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
 
 #slide1{
 	background: url('../images/road.png') no-repeat 0% 50%;
