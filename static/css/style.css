@@ -5,7 +5,7 @@ body {
 	font-weight: 400;
 	font-size: 1em;
 	color: #8a8683;
-	background-color:#ffffff;
+	background-color: #f1f1f2;
 }
 img {
 	max-width: 100%;
@@ -74,7 +74,8 @@ a:visited {
 
 .slide{
 	background-attachment: fixed;
-	width:100%;
+	width: 100%;
+	margin: 0 auto;
 	height:auto;
 	min-height: 540px;
 	position: relative;
@@ -135,7 +136,7 @@ a:visited {
 	text-align: center;
 }
 .icon-b{
-	font-size: 4em;
+	font-size: 3em;
 	float: left;
 	display: block;
 	width: 20%;
@@ -148,7 +149,13 @@ a:visited {
 }
 .image-holder{
 	margin-top: -50px;
+	text-align: center;
+	height: 400px;
 }
+.image {
+    height: 400px;
+}
+
 #slide1{
 	background: url('../images/road.png') no-repeat 0% 50%;
 	height: 420px;
@@ -165,7 +172,7 @@ a:visited {
 	background-image:url('../images/sunglasses.png');
 }
 #slide3{
-	background-color:#ffffff;
+	background-color: #FFF;
 	color:#333333;
 }
 #separator3{
