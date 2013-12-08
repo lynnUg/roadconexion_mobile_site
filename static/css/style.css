@@ -15,7 +15,7 @@ a:link {
 	text-decoration: none;
 }
 a:hover {
-	color: #bde2df;
+	color: #2ecc71;
 	text-decoration: none;
 }
 a:visited {
@@ -157,7 +157,7 @@ a:visited {
 }
 .contacts a {
     display: block;
-    margin: 20px 10px;
+    text-align: center;
 }
 .contacts i {
     font-size: 4em;
