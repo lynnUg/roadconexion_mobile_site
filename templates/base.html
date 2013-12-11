@@ -13,11 +13,11 @@
     	}
   		google.maps.event.addDomListener(window, 'load', initialize);
   	</script>
+    
+  {% include "ga.html" %}
 </head>
 <body>
-  {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
-  {% include "ga.html" %}
-{% endif %}
+
 <!--<div id="site">RoadConexion</div>-->
 	{% if user.is_authenticated %}
   	<div id="header">
