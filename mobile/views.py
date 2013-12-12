@@ -140,8 +140,8 @@ class ReportList(APIView):
     def get(self, request, format=None):
         report = Report.objects.all()
         serializer = MobileSerializer(report, many=True)
-        return Response(serializer.data)
-        #return Response({'reports': serializer.data})
+        #return Response(serializer.data)
+        return Response({'reports': serializer.data})
 
     def post(self, request, format=None):
         serializer = MobileSerializer(data=request.DATA)
