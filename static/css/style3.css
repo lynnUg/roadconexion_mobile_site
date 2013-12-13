@@ -1,8 +1,9 @@
-html, body { margin: 0; padding: 0; color: #666; background: #DADFEB; font-size: 12px; font-family: Arial, Helvetica, sans-serif; line-height: 1.3em; -webkit-text-size-adjust: none; }
+html, body { margin: 0; padding: 0; color: #666; background: #F5F5F5; font-size: 12px; font-family: Arial, Helvetica, sans-serif; line-height: 1.3em; -webkit-text-size-adjust: none; }
 input, select, textarea { font-size: 95%; font-family: Arial, Helvetica, sans-serif; }
 a { color:#1B0862; text-decoration: none; }
 br { color:#780000 ;  }
 pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Arial }
+
 .clear { clear: both; height: 1px; width: 96%; display: block; }
 
 /* SITE */
@@ -12,6 +13,8 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 #header {
 	margin: 0;
 	height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	background: rgb(114,114,114); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(114,114,114,1) 0%, rgba(12,12,12,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(114,114,114,1)), color-stop(100%,rgba(12,12,12,1))); /* Chrome,Safari4+ */
@@ -53,6 +56,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	position: relative;
 	height: 35px;
 	margin: 0 10px;
+	margin-top: 10px;
 }
 
 	#menu a {
@@ -65,6 +69,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	    color: #D8D8D8;
 	    margin: 0 1% 0;
 	    background: #202325;
+	    border-radius: 5px;
 	}
 	#menu a:first-child {
 	    margin-left: 0;
@@ -79,6 +84,8 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 
 }
 
+
+
 #social {
     width: 100%;
 }
@@ -90,18 +97,24 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	}
 	.facebook button {
 	    width: 80%;
+	    border: 0;
 	    height: 40px;
 	    margin: 10px 10%;
+	    border-radius: 5px;
 	    background: rgb(23, 23, 109);
 	    color: #FFF;
 	}
 	.twitter button {
 	    width: 80%;
+	    border: 0;
+	    border-radius: 5px;
 	    height: 40px;
 	    margin: 5px 10%;
 	    background: rgb(90, 186, 240);
 	    color: #FFF;
 	}
+
+	#social { border: 0; }
 
 .search {
     clear: both;
@@ -179,7 +192,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 #banner img {display: block; padding: ; margin: 0 auto }
 
 /* CONTENT */
-#content { color: #666; background: #fff; margin: 0 10px;}
+#content { color: #666; background: #fff; margin: 0 10px; padding-bottom: 5px;}
     #content .title .stamp { font-size:12px; font-weight: normal;}
 	#content .errors { padding: 10px; background: #ececec; font-weight: bold; color: #da2127; }
 	#content .errors ul { margin: 15px 15px 10px 15px; padding: 0; }
@@ -205,7 +218,7 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
     #content form select.shorter { width: 30%; }
 	#content form div.shorter select { width: 30%; }
 	#content form .btns input,
-	#content .btn { padding: 3px 8px 4px 8px; border: 0; background: #1B0862; color: #fff; font-weight: bold; }
+	#content .btn { padding: 8px 18px 8px 18px; border: 0; background: #1B0862; color: #fff; font-weight: bold; border-radius: 5px; }
 	#content .h1 { padding: 6px 10px 5px 10px; background: #1B0862; clear: both; font-size: 1em; font-weight: bold; color: #fff; text-transform: uppercase; text-align: center; }
 
 /* CONTENT INNER */
@@ -251,6 +264,9 @@ pre {line-height: 80%;padding: 5px;overflow: auto;color:#1B0862 ;font-family: Ar
 	font-size: 11px;
 	font-weight: bold;
 	text-align: center;
+	width: 100%;
+   	bottom:0;
+   	position: fixed;
 }
 	#footer span {
 		clear: both;
