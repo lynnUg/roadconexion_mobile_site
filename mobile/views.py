@@ -70,7 +70,6 @@ def search(request):
 	context = RequestContext(request)
 	object_list=Report.objects.all()
 	if request.method == 'POST':
-
 		 starts_with=request.POST['road_name']
 		 object_list=Report.objects.filter(road_name__icontains=starts_with).order_by('-created_on')
 		 return render_to_response(
@@ -140,8 +139,8 @@ class ReportList(APIView):
     def get(self, request, format=None):
         report = Report.objects.all()
         serializer = MobileSerializer(report, many=True)
-        #return Response(serializer.data)
-        return Response({'reports': serializer.data})
+        return Response(serializer.data)
+        #return Response({'reports': serializer.data})
 
     def post(self, request, format=None):
         serializer = MobileSerializer(data=request.DATA)
@@ -155,8 +154,6 @@ class ReportList(APIView):
 #    queryset = Report.objects.all()
 #    serializer_class = MobileSerializer
 
-
-
 #@csrf_exempt
 #@api_view(['GET', 'PUT', 'DELETE'])
 #def report_detail(request, pk, format=None):
@@ -167,7 +164,6 @@ class ReportDetail(APIView):
     """
     Retrieve, update or delete a report.
     """
-  
 
     def get_object(self, pk):
         try:
@@ -197,6 +193,3 @@ class ReportDetail(APIView):
 #class ReportDetail(generics.RetrieveUpdateDestroyAPIView):
 #    queryset = Report.objects.all()
 #    serializer_class = MobileSerializer
-
-
- 

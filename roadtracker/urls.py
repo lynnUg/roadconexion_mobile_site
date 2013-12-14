@@ -81,8 +81,3 @@ if settings.DEBUG:
                 (r'profile_images/(?P<path>.*)',
                 'serve',
                 {'document_root': settings.MEDIA_ROOT}), )
-
-
-
-
-
