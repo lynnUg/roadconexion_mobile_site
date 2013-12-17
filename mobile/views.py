@@ -22,6 +22,7 @@ from mobile.serializers import PaginatedMobileSerializer
 from rest_framework.views import APIView
 from rest_framework import filters
 from rest_framework import pagination
+from rest_framework import generics
 #from rest_framework import status
 #
 "mixins and generics for simpler classes"
@@ -135,7 +136,7 @@ def delete(request,pk):
 #def report_list(request, format=None):
 
 #we comment this class out, since we have simplified it below using generics
-class ReportList(APIView):
+class ReportList(generics.ListAPIView):
     """
     List all code reports, or create a new report.
     """
