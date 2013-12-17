@@ -140,7 +140,7 @@ class ReportList(APIView):
     
     def get(self, request, format=None):
         query = Report.objects.all()
-
+"""
         paginator = Paginator(query, 20)
 
         page = request.QUERY_PARAMS.get('page')
@@ -155,12 +155,10 @@ class ReportList(APIView):
         serializer_context = {'request': request}
 
         serializer = PaginatedMobileSerializer(report, context=serializer_context)
-
-        #serializer = MobileSerializer(report, many=True)
-        """
+"""
+        serializer = MobileSerializer(query, many=True)
         filter_backends = (filters.OrderingFilter)
-        ordering = ('user')
-        """
+        ordering = ('created_on')
         return Response(serializer.data)
         #return Response({'reports': serializer.data})
 
