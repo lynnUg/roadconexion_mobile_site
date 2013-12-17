@@ -3,7 +3,7 @@ from django.forms import widgets
 from django import forms
 from mobile.models import Report
 from rest_framework import serializers
-from rest_framework.pagination import PaginationSerializer
+from rest_framework import pagination
 from mobile.models import models, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
