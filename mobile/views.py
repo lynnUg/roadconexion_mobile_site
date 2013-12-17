@@ -4,7 +4,7 @@ from mobile.models import Report,ReportForm
 from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
-
+from django.http import Http404
 
 #for the RESTful API
 from rest_framework import status
@@ -16,9 +16,9 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from mobile.models import Report
 from mobile.serializers import MobileSerializer
-from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import filters
+from rest_framework import pagination
 #from rest_framework import status
 #
 "mixins and generics for simpler classes"
@@ -138,10 +138,28 @@ class ReportList(APIView):
     """
     
     def get(self, request, format=None):
-        report = Report.objects.all()
-        serializer = MobileSerializer(report, many=True)
+        query = Report.objects.all()
+
+        paginator = Paginator(query, 20)
+
+        page = request.QUERY_PARAMS.get('page')
+        try:
+            report = paginator.page(page)
+        except PageNotAnInteger:
+            #If page is not an integer, deliver first page.
+            report = paginator.page(1)
+        except EmptyPage:
+            report = paginator.page(paginator.num_pages)
+
+        serializer_context = {'request': request}
+
+        serializer = PaginatedMobileSerializer(report, context=serializer_context)
+
+        #serializer = MobileSerializer(report, many=True)
+        """
         filter_backends = (filters.OrderingFilter)
         ordering = ('user')
+        """
         return Response(serializer.data)
         #return Response({'reports': serializer.data})
 
