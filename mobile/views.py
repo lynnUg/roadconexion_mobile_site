@@ -18,7 +18,6 @@ from mobile.models import Report
 from mobile.serializers import MobileSerializer
 from rest_framework.views import APIView
 from rest_framework import filters
-from rest_framework import pagination
 #from rest_framework import status
 #
 "mixins and generics for simpler classes"
