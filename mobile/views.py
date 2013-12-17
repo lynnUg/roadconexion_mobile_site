@@ -159,8 +159,10 @@ class ReportList(APIView):
         serializer = PaginatedMobileSerializer(report, context=serializer_context)
         """
         serializer = MobileSerializer(query, many=True)
-        filter_backends = (filters.OrderingFilter)
-        ordering = ('created_on')
+
+        #filter_backends = (filters.OrderingFilter)
+        #ordering = ('created_on')
+        
         return Response(serializer.data)
         #return Response({'reports': serializer.data})
 
