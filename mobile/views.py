@@ -139,6 +139,8 @@ class ReportList(APIView):
     def get(self, request, format=None):
         report = Report.objects.all()
         serializer = MobileSerializer(report, many=True)
+        filter_backends = (filters.OrderingFilter)
+        ordering = ('created_on')
         return Response(serializer.data)
         #return Response({'reports': serializer.data})
 
