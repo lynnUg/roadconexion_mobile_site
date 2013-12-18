@@ -237,8 +237,7 @@ REST_FRAMEWORK = {
         'rest_framework.serializers.HyperlinkedModelSerializer',
     #Default format for the datetime field returned in API
     'DATETIME_FORMAT':
-        'iso-8601',
-    
+        None,
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
