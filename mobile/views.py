@@ -136,7 +136,7 @@ def delete(request,pk):
 #def report_list(request, format=None):
 
 #we comment this class out, since we have simplified it below using generics
-class ReportList(generics.ListAPIView):
+class ReportList(APIView):
     """
     List all code reports, or create a new report.
     """
@@ -161,7 +161,7 @@ class ReportList(generics.ListAPIView):
         """
         serializer = MobileSerializer(query, many=True)
 
-        #filter_backends = (filters.OrderingFilter)
+        filter_backends = (filters.OrderingFilter)
         #ordering = ('created_on')
         
         return Response(serializer.data)
