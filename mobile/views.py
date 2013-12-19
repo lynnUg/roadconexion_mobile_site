@@ -165,7 +165,7 @@ class ReportList(APIView):
              reports = paginator.page(paginator.num_pages)
 
         serializer_context = {'request': request}
-        serializer = PaginatedUserSerializer(reports,
+        serializer = PaginatedMobileSerializer(reports,
                                          context=serializer_context)
         #serializer = MobileSerializer(report, many=True)
 
