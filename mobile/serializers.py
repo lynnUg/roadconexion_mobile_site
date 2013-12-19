@@ -27,11 +27,11 @@ class MobileSerializer(serializers.ModelSerializer):
         fields = ('road_name', 'report', 'type_report', 'created_on', 'user')
 
 
-        #comment all this out to reduce reusing data
-   # road_name = models.TextField(max_length=1000, blank=False)
-   # report= models.TextField(blank=False)
-   # type_report=models.CharField(max_length=1000,choices=TYPE_CHOICES,blank=False)
-  #  created_on = models.DateTimeField(auto_now_add=True)
+    #comment all this out to reduce reusing data
+    # road_name = models.TextField(max_length=1000, blank=False)
+    # report= models.TextField(blank=False)
+    # type_report=models.CharField(max_length=1000,choices=TYPE_CHOICES,blank=False)
+    #  created_on = models.DateTimeField(auto_now_add=True)
     
     #comment this out, since its a foreign key and im testing,,, uncomment when not using
     #user = models.ForeignKey(User)
@@ -58,7 +58,8 @@ class MobileSerializer(serializers.ModelSerializer):
 
         # Create new instance
         #return Roadtracker(**attrs)
-class PaginatedUserSerializer(pagination.PaginationSerializer):
+
+class PaginatedMobileSerializer(pagination.PaginationSerializer):
     """
     Serializes page objects of user querysets.
     """

@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
 from django.core.exceptions import ObjectDoesNotExist 
+from django.http import Http404
 
 #for the RESTful API
 from rest_framework import status
@@ -15,10 +16,11 @@ from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from mobile.models import Report
-from mobile.serializers import MobileSerializer,PaginatedUserSerializer
+from mobile.serializers import MobileSerializer,PaginatedMobileSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from django.core.paginator import Paginator,PageNotAnInteger
+
 
 #from rest_framework import status
 #
@@ -80,7 +82,6 @@ def search(request):
 	context = RequestContext(request)
 	object_list=Report.objects.all()
 	if request.method == 'POST':
-
 		 starts_with=request.POST['road_name']
 		 object_list=Report.objects.filter(road_name__icontains=starts_with).order_by('-created_on')
 		 return render_to_response(
@@ -167,7 +168,9 @@ class ReportList(APIView):
         serializer = PaginatedUserSerializer(reports,
                                          context=serializer_context)
         #serializer = MobileSerializer(report, many=True)
+
         return Response(serializer.data)
+        #return Response({'reports': serializer.data})
 
     def post(self, request, format=None):
         serializer = MobileSerializer(data=request.DATA)
@@ -181,8 +184,6 @@ class ReportList(APIView):
 #    queryset = Report.objects.all()
 #    serializer_class = MobileSerializer
 
-
-
 #@csrf_exempt
 #@api_view(['GET', 'PUT', 'DELETE'])
 #def report_detail(request, pk, format=None):
@@ -193,7 +194,6 @@ class ReportDetail(APIView):
     """
     Retrieve, update or delete a report.
     """
-  
 
     def get_object(self, pk):
         try:
@@ -223,6 +223,3 @@ class ReportDetail(APIView):
 #class ReportDetail(generics.RetrieveUpdateDestroyAPIView):
 #    queryset = Report.objects.all()
 #    serializer_class = MobileSerializer
-
-
- 

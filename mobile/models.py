@@ -35,3 +35,6 @@ class ReportForm(forms.ModelForm):
 		model = Report
 		fields = ['type_report', 'road_name', 'report']
         #exclude = ["user"]
+class gamepoints(models.Model):
+    user=models.ForeignKey(User)
+    points=models.IntegerField(default=0)
