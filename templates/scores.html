@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{%if object_list %}
+
+<div class="container">
+  <div class="title">Scoreboard</div>
+  <div class="items">
+  {% for score in object_list %}
+    <div class="item">
+      <a >Username :<a>{{score.user.username}}</a>
+      <p>number of points <p><p>{{score.points}}</p>
+
+    </div>
+  {% endfor %}
+  </div>
+</div>
+  <!-- Next/Prev page links  -->
+{% if is_paginated %}
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
+    {% endif %}
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>  
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
+    {% endif %}
+  </span>
+</div>   
+{% endif %}
+{% else %}
+<h1>No recent posts</h1>
+{% endif %}
+{% endblock %}

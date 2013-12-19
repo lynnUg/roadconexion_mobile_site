@@ -11,7 +11,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
-from mobile.models import Report
+from mobile.models import Report, gamepoints
 from registration.views import (RegistrationView,ActivationView)
 urlpatterns = patterns('',
     # Examples:
@@ -24,6 +24,9 @@ urlpatterns = patterns('',
     url(r'^roadconexion/$', TemplateView.as_view(template_name='stylish-portfolio.html')),
     url(r'^$', ListView.as_view(queryset=Report.objects.all().order_by('-created_on'),
         template_name='posts.html',
+        paginate_by=15, allow_empty=True)),
+    url(r'^scoreboard/$', ListView.as_view(queryset=gamepoints.objects.all().order_by('points'),
+        template_name='scores.html',
         paginate_by=15, allow_empty=True)),
     url(r'', include('social_auth.urls')),
     # url(r'^$', 'roadtracker.views.home', name='home'),
