@@ -1,10 +1,10 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from mobile.models import Report,ReportForm 
+from mobile.models import Report,ReportForm ,gamepoints
 from django.contrib.auth import authenticate, login ,logout
 from django.http import HttpResponseRedirect,HttpResponse
 from django.contrib.auth.decorators import login_required 
-
+from django.core.exceptions import ObjectDoesNotExist 
 
 #for the RESTful API
 from rest_framework import status
@@ -15,9 +15,11 @@ from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from mobile.models import Report
-from mobile.serializers import MobileSerializer
+from mobile.serializers import MobileSerializer,PaginatedUserSerializer
 from django.http import Http404
 from rest_framework.views import APIView
+from django.core.paginator import Paginator,PageNotAnInteger
+
 #from rest_framework import status
 #
 "mixins and generics for simpler classes"
@@ -45,8 +47,16 @@ def submit_report(request):
         if Report_form.is_valid():
             print "here3"
             # Save the user's form data to the database.
-            the_report=Report(road_name=p['road_name'],report=p['report'],type_report=p['type_report'],user=request.user)
-            the_report.save()
+            #the_report=Report(road_name=p['road_name'],report=p['report'],type_report=p['type_report'],user=request.user)
+            #the_report.save()
+            try:
+                user_points=gamepoints.objects.get(user=request.user)
+                user_points.points+=1
+                user_points.save()
+            except ObjectDoesNotExist:
+                user_points=gamepoints.objects.create(user=request.user)
+                user_points.points+=1
+                user_points.save()
             return render_to_response(
             'posts.html',
             {'object_list':object_list},
@@ -112,6 +122,8 @@ def profile(request):
 def delete(request,pk):
     report = Report.objects.filter(pk=int(pk))
     report.delete()
+    user_points=gamepoints.objects.get(user=request.user)
+    user_points.points-=1    
     object_list=Report.objects.filter(user=request.user).order_by('-created_on')
     return render_to_response("profile.html",{'object_list':object_list},context_instance=RequestContext(request))
 
@@ -138,8 +150,23 @@ class ReportList(APIView):
     """
     
     def get(self, request, format=None):
-        report = Report.objects.all()
-        serializer = MobileSerializer(report, many=True)
+        reports = Report.objects.all().order_by('-created_on')
+        paginator = Paginator(reports, 20)
+        page = request.QUERY_PARAMS.get('page')
+        try:
+            reports = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            reports = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999),
+            # deliver last page of results.
+             reports = paginator.page(paginator.num_pages)
+
+        serializer_context = {'request': request}
+        serializer = PaginatedUserSerializer(reports,
+                                         context=serializer_context)
+        #serializer = MobileSerializer(report, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):

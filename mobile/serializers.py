@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.forms import widgets
 from django import forms
 from mobile.models import Report
-from rest_framework import serializers
+from rest_framework import serializers ,pagination
 from mobile.models import models, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
@@ -20,7 +20,7 @@ TYPE_CHOICES=(
 #class roadtrackerserializer
 
 class MobileSerializer(serializers.ModelSerializer):
-    
+    user=serializers.RelatedField(many=False)
     #the required forms ,we reduce on reusing forms by using this meta class
     class Meta:
         model = Report
@@ -58,3 +58,9 @@ class MobileSerializer(serializers.ModelSerializer):
 
         # Create new instance
         #return Roadtracker(**attrs)
+class PaginatedUserSerializer(pagination.PaginationSerializer):
+    """
+    Serializes page objects of user querysets.
+    """
+    class Meta:
+        object_serializer_class = MobileSerializer

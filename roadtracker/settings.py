@@ -172,6 +172,15 @@ GOOGLE_OAUTH2_CLIENT_SECRET  = ''
 YAHOO_CONSUMER_KEY           = ''
 YAHOO_CONSUMER_SECRET        = ''
 
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-46239621-1'
+GOOGLE_ANALYTICS_DOMAIN = 'www.roadconexion.com'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+     "django.core.context_processors.request",
+    "django.contrib.auth.context_processors.auth",
+    "mobile.processor.google_analytics",
+)
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
