@@ -49,8 +49,8 @@ def submit_report(request):
         if Report_form.is_valid():
             print "here3"
             # Save the user's form data to the database.
-            #the_report=Report(road_name=p['road_name'],report=p['report'],type_report=p['type_report'],user=request.user)
-            #the_report.save()
+            the_report=Report(road_name=p['road_name'],report=p['report'],type_report=p['type_report'],user=request.user)
+            the_report.save()
             try:
                 user_points=gamepoints.objects.get(user=request.user)
                 user_points.points+=1
