@@ -1,62 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-{%if object_list %}
+
 
 <div class="container">
   <div class="items">
     <div class="item">
-  <h3>The game </h3>
-    <p>The roadconexion team is offering 500mb monthly bundle (any network) to the user with the highest number of traffic updates submitted on our mobile site by the end of next week(17 th jan) </p>
-    <p> A scoreboard will show how users are performing</p>
-   <h3> Rules</h3> 
-   <p>-Only traffic updates on our mobile site will be considered</p> 
-   <p>-The roadconexion team has the right to disqualfy any user posting fraudlent traffic updates</p> 
+  <h3>Closure </h3>
+    <p>The roadconexion team is closing shop on roadconexion application.Its been a great 2 months and 3 weeks </p>
+    
+   <p>Our reason for closure is we didn't obtain the expect response from our customers.</p> 
+   <p>We are availing all our code as open source on git (if you feel you can use it) , we had both a mobile site and android app that didnt make it to the app store </p>
+    <p><a href='https://github.com/lynnUg/roadconexion_mobile_site.git'>Link to Mobile site</a></p>
+    <p><a href='https://github.com/lynnUg/roadconexion.git'>Link to Andriod app</a></p>
+    <p>Feel free to email us at theteam@roadconexion.com for any questions</p>
    </div>
  </div>
 <!-- Start of test table-->
-<div class="items">
-  <div class="item table">
 
-    <table>
-      <h3> Win 500 mb Scoreboard <h3>
-  <thead>
-    
-    <tr>
-      <th>Username</th>
-      <th>Traffic update Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for score in object_list %}
-    <tr>
-      <td>{{score.user.username}}</td>
-      <td>{{score.points}}</td>
-    </tr>
-     {% endfor %}
-  </tbody>
-</table>
-
-</div>
-  <!-- Next/Prev page links  -->
-{% if is_paginated %}
-<div class="pagination">
-  <span class="step-links">
-    {% if page_obj.has_previous %}
-    <a href= "?page={{ page_obj.previous_page_number }}">newer entries &lt;&lt; </a>
-    {% endif %}
-    <span class="current">
-      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-    </span>  
-    {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}"> &gt;&gt; older entries</a>
-    {% endif %}
-  </span>
-</div>   
-
- </div>  
-
-{% endif %}
-{% else %}
-<h1>No recent posts</h1>
-{% endif %}
 {% endblock %}
